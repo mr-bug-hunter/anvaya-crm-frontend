@@ -15,10 +15,10 @@ const Report = ()=>{
         const fetchReport = async ()=>{
             try{
                 //pie chart
-                const pipelineRes = await axios.get("http://localhost:5000/report/pipeline")
+                const pipelineRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/report/pipeline")
                 setPipelineData(pipelineRes.data)
                 //Bar chart
-                const agentRes = await axios.get("http://localhost:5000/report/closed-by-agent")
+                const agentRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/report/closed-by-agent")
                 setAgentData(agentRes.data)
                 setLoading(false)
             }catch(error){

@@ -12,10 +12,10 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const statsRes = await axios.get("http://localhost:5000/report/pipeline")
+                const statsRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/report/pipeline")
                 setStats(statsRes.data)
 
-                const leadsRes = await axios.get("http://localhost:5000/leads")
+                const leadsRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/leads")
                 setRecentLeads(leadsRes.data.slice(0, 3)) //only first 3 leads
                 setLoading(false)
             } catch (error) {

@@ -11,10 +11,10 @@ const Settings = ()=>{
     useEffect(()=>{
         const fetchData = async ()=>{
             try{
-            const leadRes = await axios.get("http://localhost:5000/leads")
+            const leadRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/leads")
             setLeads(leadRes.data)
 
-            const agentRes = await axios.get("http://localhost:5000/agents")
+            const agentRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/agents")
             setAgents(agentRes.data)
             setLoading(false)
         }catch(error){
@@ -30,7 +30,7 @@ const Settings = ()=>{
         const confirmDelete = window.confirm("Do you want to delete this lead!")
         if(!confirmDelete) return;
         try{
-            await axios.delete(`http://localhost:5000/leads/${id}`)
+            await axios.delete(`https://anvaya-crm-frontend-snowy.vercel.app/leads/${id}`)
             setLeads(leads.filter(lead => lead._id !== id))
             alert("Lead deleted successfully!")
         }catch(error){
@@ -42,7 +42,7 @@ const Settings = ()=>{
         const confirmAgentDelete = window.confirm("Do you want to delete Agent!")
         if(!confirmAgentDelete) return;
         try{
-            await axios.delete(`http://localhost:5000/agents/${id}`)
+            await axios.delete(`https://anvaya-crm-frontend-snowy.vercel.app/agents/${id}`)
             setAgents(leads.filter(agent => agent._id !== id))
             alert("Agent deleted successfully!")
         }catch(error){

@@ -19,7 +19,7 @@ const LeadList = ()=>{
     useEffect(()=>{
         const fetchAgents = async ()=> {
             try{
-                const res = await axios.get("http://localhost:5000/agents")
+                const res = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/agents")
                 setAgents(res.data)
             }catch(error){
                 console.log("Error fetching agents", error)
@@ -32,7 +32,7 @@ const LeadList = ()=>{
         const fetchLeads = async ()=>{
             setLoading(true)
             try{
-                let url = "http://localhost:5000/leads?";
+                let url = "https://anvaya-crm-frontend-snowy.vercel.app/leads?";
                 if (currentStatus && currentStatus !== "All Status"){
                     url += `status=${currentStatus}&`
                 }

@@ -18,7 +18,7 @@ const LeadDetails = ()=>{
         const fetchData = async ()=>{
             setLoading(true)
             try{
-                const leadRes = await axios.get(`http://localhost:5000/leads/${id}`)
+                const leadRes = await axios.get(`https://anvaya-crm-frontend-snowy.vercel.app/leads/${id}`)
                 setLead(leadRes.data)
                 setEditData({
                     status: leadRes.data.status,
@@ -27,10 +27,10 @@ const LeadDetails = ()=>{
                     salesAgent: leadRes.data.salesAgent ? leadRes.data.salesAgent._id : ""
                 })
 
-                const commentsRes = await axios.get(`http://localhost:5000/leads/${id}/comments`)
+                const commentsRes = await axios.get(`https://anvaya-crm-frontend-snowy.vercel.app/leads/${id}/comments`)
                 setComments(commentsRes.data.comment || [])// this send comment from backend "comments"
 
-                const agentRes = await axios.get("http://localhost:5000/agents")
+                const agentRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/agents")
                 if(agentRes.data.length > 0){
                     setAuthorId(agentRes.data[0]._id) // take the first ID
                 }
@@ -45,7 +45,7 @@ const LeadDetails = ()=>{
 
     const handleUpdate = async ()=>{
         try{
-            const res = await axios.patch(`http://localhost:5000/leads/${id}`, editData)
+            const res = await axios.patch(`https://anvaya-crm-frontend-snowy.vercel.app/leads/${id}`, editData)
             setLead(res.data.updatedLead) //backend pe update
             setIsEditing(false) //edit close
             alert("lead updated successfully!")
@@ -58,11 +58,11 @@ const LeadDetails = ()=>{
         e.preventDefault()
         if(!newComment) return; 
         try{
-            await axios.post(`http://localhost:5000/leads/${id}/comments`, {
+            await axios.post(`https://anvaya-crm-frontend-snowy.vercel.app/leads/${id}/comments`, {
                 commentText: newComment,
                 author: authorId
             })
-            const commentsRes = await axios.get(`http://localhost:5000/leads/${id}/comments`)
+            const commentsRes = await axios.get(`https://anvaya-crm-frontend-snowy.vercel.app/leads/${id}/comments`)
             setComments(commentsRes.data.comment)
             setNewComment("")// clear the input
             alert("comment added!")

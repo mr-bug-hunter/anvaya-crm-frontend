@@ -14,7 +14,7 @@ const AgentForm = ()=>{
         e.preventDefault()
         setLoading(true)
         try{
-            await axios.post("http://localhost:5000/agents", {name, email})
+            await axios.post("https://anvaya-crm-frontend-snowy.vercel.app/agents", {name, email})
             alert("Agent added successfully!")
             navigate("/agents")
         }catch(error){
