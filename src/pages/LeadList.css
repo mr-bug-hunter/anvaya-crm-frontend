@@ -1,0 +1,111 @@
+.lead-list-container {
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1px;
+}
+
+.lead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-btn {
+    background-color: #A294F9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.lead-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lead-table th, .lead-table td{
+    padding: 10px;
+    text-align: left;
+    border-bottom: 0.1px solid #E5D9F2;
+}
+
+.status-badge {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.status-badge.new {
+    background-color: #F5EFFF;
+    color: #A294F9;
+    padding: 7px;
+}
+
+.status-badge.closed {
+    background-color: #F5EFFF;
+    color: red;
+    padding: 7px;
+}
+
+.status-badge.qualified {
+    background-color: #e8f5e9;
+    color: greenyellow;
+    padding: 7px;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    
+}
+
+.filter-section select {
+    padding: 5px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #F5EFFF;
+}
+
+.lead-link{
+    text-decoration: none;
+    color: darkslateblue;
+    font-weight: bold;
+}
+
+.lead-link:hover{
+    background-color: #E5D9F2;
+    padding: 6px;
+    padding-left: 10px;
+    border-radius: 3px;
+}
+
+.status {
+    padding-top: 20px;
+    align-items: center;
+    gap: 15px;
+    color: darkslateblue;
+}
+.status-btn{
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: #A294F9;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.status-btn:hover{
+    background-color: #8C7AE6;
+}

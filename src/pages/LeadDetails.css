@@ -1,0 +1,179 @@
+.lead-details-container{
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.back-link{
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #8C7AE6;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.back-link:hover{
+    color: darkslateblue;
+}
+
+.lead-info{
+    background-color: whitesmoke;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E5D9F2;
+    margin-bottom: 30px;
+}
+
+.lead-info h2{
+    color: darkslateblue;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E5D9F2;
+}
+
+.edit-btn {
+    background-color: transparent;
+    color: #A294F9;
+    border: 1px solid #A294F9;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #A294F9;
+    color: white;
+}
+
+.view-details p{
+    margin: 18px 0;
+    font-size: 16px;
+    color: gray;
+}
+
+.view-details strong {
+    color: black;
+    display: inline-block;
+    width: 280px;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fcfaff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px dashed #A294F9;
+}
+
+.edit-form label{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: darkslateblue;
+    gap: 8px;
+}
+
+.edit-form select, .edit-form input {
+    padding: 9px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.edit-action {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.save-btn{
+    background-color: transparent;
+    color: darkslateblue;
+    padding: 10px 10px;
+    border: 1px solid #A294F9;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-btn:hover{
+    background-color: #E5D9F2;
+}
+
+.cancel-btn{
+    background-color: transparent;
+    color: darkslateblue;
+    padding: 10px 10px;
+    border: 1px solid #A294F9;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #E5D9F2;
+}
+
+.comments-section {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E5D9F2;
+}
+
+.comments-section h3{
+    color: darkslateblue;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.comment-box {
+    background-color: #F5EFFF;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #A294F9;
+}
+
+.comment-box p{
+    margin: 5px 0;
+    color: darkslateblue;
+}
+
+.add-comment-form {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.add-comment-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    border-right: 18px;
+    font-size: 15px;
+}
+
+.add-comment-form button {
+    padding: 12px 25px;
+    background-color: #A294F9;
+    color: whitesmoke;
+    font-weight: bold;
+    width: 300px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.add-comment-form button:hover{
+    background-color: #8C7AE6;
+}

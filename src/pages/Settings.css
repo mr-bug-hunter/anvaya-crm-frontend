@@ -1,0 +1,62 @@
+.manager{
+    margin-bottom: 20px;
+    color: darkslateblue;
+}
+
+.settings-container {
+    padding: 30px;
+}
+
+.back-link{
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #8C7AE6;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.back-link:hover{
+    color: darkslateblue;
+}
+
+.settings-section {
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid white;
+    color: darkslateblue;
+}
+
+.settings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.settings-table th, .settings-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid white;
+    color: darkslateblue;
+}
+
+.settings-table th{
+    background-color: #E5D9F2;
+    border-radius: 0 10px;
+    color: darkslateblue;
+}
+.delete-btn {
+    background-color: #D0311E;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover{
+    background-color: #BE1A1A;
+}

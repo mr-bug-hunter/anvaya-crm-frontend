@@ -1,0 +1,21 @@
+.header{
+    background-color: #C5BAFF;
+    text-align: center;    
+    padding: 10px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.10);
+    z-index:100;
+    text-decoration: none;
+}
+
+.header a{
+    text-decoration: none;
+}
+
+.logo{
+    color: #1a1a1a;
+    text-shadow: 
+    0 0 8px gray,
+    0 0 18px #A294F9;
+    text-decoration: none;
+}
