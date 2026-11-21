@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./LeadForm.css"
 import axios from "axios"
 import {Link, useNavigate } from "react-router-dom"
+import {toast} from "react-tostify"
 
 const LeadForm = ()=>{
     const [name, setName] = useState("")
@@ -46,11 +47,11 @@ const LeadForm = ()=>{
                 tags: tags.split(",")
             }
             await axios.post("https://anvaya-crm-backend-lyart.vercel.app/leads", formData)
-            alert("Lead created successfully!")
+            toast.success("Lead created successfully!")
             navigate("/leads")
         }catch(error){
             console.log("Error in fetching Lead Form...please wait", error)
-            alert("failed to create Leads")
+            toast.info("failed to create Leads")
         }
     }
 

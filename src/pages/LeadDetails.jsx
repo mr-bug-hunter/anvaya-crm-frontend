@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./LeadDetails.css"
 import { useParams, Link } from "react-router-dom"
 import axios from "axios"
+import {toast} from "react-toastify"
 
 const LeadDetails = ()=>{
     const {id} = useParams()
@@ -48,7 +49,7 @@ const LeadDetails = ()=>{
             const res = await axios.patch(`https://anvaya-crm-backend-lyart.vercel.app/leads/${id}`, editData)
             setLead(res.data.updatedLead) //backend pe update
             setIsEditing(false) //edit close
-            alert("lead updated successfully!")
+            toast.success("lead updated successfully!")
         }catch(error){
             console.log("Error updating lead", error)
         }
@@ -65,7 +66,7 @@ const LeadDetails = ()=>{
             const commentsRes = await axios.get(`https://anvaya-crm-backend-lyart.vercel.app/leads/${id}/comments`)
             setComments(commentsRes.data.comment)
             setNewComment("")// clear the input
-            alert("comment added!")
+            toast.success("comment added!")
         }catch(error){
             console.log("Error adding comment", error)
         }

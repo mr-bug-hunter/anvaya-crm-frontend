@@ -2,6 +2,7 @@ import "./Settings.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import {toast} from "react-toastify"
 
 const Settings = ()=>{
     const [leads, setLeads] = useState([])
@@ -32,7 +33,7 @@ const Settings = ()=>{
         try{
             await axios.delete(`https://anvaya-crm-backend-lyart.vercel.app/leads/${id}`)
             setLeads(leads.filter(lead => lead._id !== id))
-            alert("Lead deleted successfully!")
+            toast.success("Lead deleted successfully!")
         }catch(error){
             console.log("Error in deleting lead", error)
         }
@@ -44,7 +45,7 @@ const Settings = ()=>{
         try{
             await axios.delete(`https://anvaya-crm-backend-lyart.vercel.app/agents/${id}`)
             setAgents(leads.filter(agent => agent._id !== id))
-            alert("Agent deleted successfully!")
+            toast.success("Agent deleted successfully!")
         }catch(error){
             console.log("Error in deleting Agent", error)
         }

@@ -2,6 +2,7 @@ import "./AgentForm.css"
 import { useState } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
 const AgentForm = ()=>{
 
@@ -15,7 +16,7 @@ const AgentForm = ()=>{
         setLoading(true)
         try{
             await axios.post("https://anvaya-crm-backend-lyart.vercel.app/agents", {name, email})
-            alert("Agent added successfully!")
+            toast.success("Agent added successfully!")
             navigate("/agents")
         }catch(error){
             console.log(error)
