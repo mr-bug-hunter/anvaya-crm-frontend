@@ -44,10 +44,11 @@ const Settings = ()=>{
         if(!confirmAgentDelete) return;
         try{
             await axios.delete(`https://anvaya-crm-backend-lyart.vercel.app/agents/${id}`)
-            setAgents(leads.filter(agent => agent._id !== id))
+            setAgents(agents.filter(agent => agent._id !== id))
             toast.success("Agent deleted successfully!")
         }catch(error){
             console.log("Error in deleting Agent", error)
+            toast.error("Failed to delete Agent")
         }
     }
     return(
