@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import "./LeadForm.css"
 import axios from "axios"
 import {Link, useNavigate } from "react-router-dom"
-import {toast} from "react-tostify"
+import {toast} from "react-toastify"
 
 const LeadForm = ()=>{
     const [name, setName] = useState("")
