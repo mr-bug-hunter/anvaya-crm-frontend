@@ -13,7 +13,7 @@ const AgentList = ()=>{
         const fetchAgents = async ()=>{
             setLoading(true)
             try{
-                const response = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/agents");
+                const response = await axios.get("https://anvaya-crm-backend-lyart.vercel.app/agents");
                 setAgents(response.data)
                 setLoading(false)
             }catch(error){

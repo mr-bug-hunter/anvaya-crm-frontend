@@ -22,7 +22,7 @@ const LeadForm = ()=>{
         const fetchAgents = async ()=>{
             setLoading(true)
             try{
-                const response = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/agents") // ye agents backend se fetch karega
+                const response = await axios.get("https://anvaya-crm-backend-lyart.vercel.app/agents") // ye agents backend se fetch karega
                 setAgents(response.data)
                 setLoading(false)
             }catch(error){
@@ -45,7 +45,7 @@ const LeadForm = ()=>{
                 timeToClose: Number(timeToClose),
                 tags: tags.split(",")
             }
-            await axios.post("https://anvaya-crm-frontend-snowy.vercel.app/leads", formData)
+            await axios.post("https://anvaya-crm-backend-lyart.vercel.app/leads", formData)
             alert("Lead created successfully!")
             navigate("/leads")
         }catch(error){

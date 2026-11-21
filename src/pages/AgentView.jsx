@@ -17,10 +17,10 @@ const AgentView = ()=>{
     useEffect(()=> {
         const fetchData = async ()=>{
             try{
-                const leadsRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/leads")
+                const leadsRes = await axios.get("https://anvaya-crm-backend-lyart.vercel.app/leads")
                 setLeads(leadsRes.data)
 
-                const agentsRes = await axios.get("https://anvaya-crm-frontend-snowy.vercel.app/agents")
+                const agentsRes = await axios.get("https://anvaya-crm-backend-lyart.vercel.app/agents")
                 setAgents(agentsRes.data)
                 setLoading(false)
             }catch(error){
