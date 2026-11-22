@@ -36,6 +36,7 @@ const Settings = ()=>{
             toast.success("Lead deleted successfully!")
         }catch(error){
             console.log("Error in deleting lead", error)
+            toast.error("Failed to delete Lead")
         }
     }
 
@@ -51,6 +52,8 @@ const Settings = ()=>{
             toast.error("Failed to delete Agent")
         }
     }
+
+    if(loading)return <h2>Loading Settings....</h2>
     return(
         <div className="settings-container">
             <Link to="/" className="back-link"> ← Back to Dashboard</Link>
@@ -106,9 +109,8 @@ const Settings = ()=>{
                                         Delete
                                         </button>
                                 </td>
-                                
                             </tr>
-                            
+
                         ))}
                     </tbody>
                 </table>
