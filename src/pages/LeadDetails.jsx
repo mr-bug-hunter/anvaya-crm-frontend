@@ -13,7 +13,7 @@ const LeadDetails = ()=>{
     const [newComment, setNewComment] = useState("")
     const [authorId, setAuthorId] = useState("")
     const [isEditing, setIsEditing] = useState(false)
-    const [editData, setEditData] = useState({status: "", priority: "", timeToClose: "", salesAgent: ""})
+    const [editData, setEditData] = useState({status: "", priority: "", timeToClose: "", salesAgent: "", source: "", tags: ""})
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -25,7 +25,9 @@ const LeadDetails = ()=>{
                     status: leadRes.data.status,
                     priority: leadRes.data.priority,
                     timeToClose: leadRes.data.timeToClose,
-                    salesAgent: leadRes.data.salesAgent ? leadRes.data.salesAgent._id : ""
+                    salesAgent: leadRes.data.salesAgent ? leadRes.data.salesAgent._id : "",
+                    source: leadRes.data.source,
+                    tags: leadRes.data.tags ? leadRes.data.tags.join(", "): ""
                 })
 
                 const commentsRes = await axios.get(`https://anvaya-crm-backend-lyart.vercel.app/leads/${id}/comments`)
@@ -46,7 +48,11 @@ const LeadDetails = ()=>{
 
     const handleUpdate = async ()=>{
         try{
-            const res = await axios.patch(`https://anvaya-crm-backend-lyart.vercel.app/leads/${id}`, editData)
+            const tagData = {
+                ...editData,
+                tags: editData.tags ? editData.tags.split(",").map(tag => tag.trim()) :[]
+            }
+            const res = await axios.patch(`https://anvaya-crm-backend-lyart.vercel.app/leads/${id}`, tagData)
             setLead(res.data.updatedLead) //backend pe update
             setIsEditing(false) //edit close
             toast.success("lead updated successfully!")
@@ -89,6 +95,19 @@ const LeadDetails = ()=>{
 
                     {isEditing ? (
                         <div className="edit-form">
+
+                            <label>
+                                Source:
+                                <select value={editData.source} onChange={(e) => setEditData({...editData, source: e.target.value})} >
+                                    <option value="Website">Website</option>
+                                    <option value="Referral">Referral</option>
+                                    <option value="Cold Call">Cold Call</option>
+                                    <option value="Advertisement">Advertisement</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </label>
+
                             <label> Status:
                                 <select value={editData.status} onChange={(e) => setEditData({...editData, status:e.target.value}) }>
                                     <option value="New">New</option>
@@ -112,6 +131,15 @@ const LeadDetails = ()=>{
                                     value={editData.timeToClose}
                                     onChange={(e) => setEditData({...editData, timeToClose: e.target.value})} />
                             </label>
+                            <label>
+                                Tags:
+                                    <input 
+                                        type="text" 
+                                        placeholder="High Value, Follow-up"
+                                        value={editData.tags}
+                                        onChange={(e) => setEditData({...editData, tags: e.target.value})}
+                                        />
+                            </label>
                             <div className="edit-action">
                             <button onClick={handleUpdate} className="save-btn">Save</button>
                             <button onClick={()=> setIsEditing(false)} className="cancel-btn">Cancel</button>
@@ -124,6 +152,7 @@ const LeadDetails = ()=>{
                             <p><strong>Status:</strong>{lead.status}</p>
                             <p><strong>Priority:</strong>{lead.priority}</p>
                             <p><strong>Time to Close:</strong>{lead.timeToClose} days</p>
+                            <p><strong>Tags:</strong> {lead.tags && lead.tags.length > 0 ? lead.tags.join(", ") : "No tags"} </p>
                         </div>
                     )}
                 </div>

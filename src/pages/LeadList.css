@@ -109,3 +109,11 @@
 .status-btn:hover{
     background-color: #8C7AE6;
 }
+
+.tag-input {
+    padding: 5px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #F5EFFF;
+}

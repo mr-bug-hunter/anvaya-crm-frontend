@@ -30,10 +30,15 @@
     color: darkslateblue;
 }
 
+.settings-section h3{
+    margin: 10px;
+    font-size: 28px;
+}
+
 .settings-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .settings-table th, .settings-table td {

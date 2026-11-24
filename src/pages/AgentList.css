@@ -19,7 +19,7 @@
 }
 
 .agent-header a {
-    background-color: #CDC1FF;
+    background-color: #A294F9;
     color: white;
     text-decoration: none;
     padding: 10px 15px;
@@ -29,7 +29,7 @@
 }
 
 .agent-header a:hover {
-    background-color: #A294F9;
+    background-color: #6061B6;
 }
 
 .agent-table {

@@ -9,11 +9,14 @@ const LeadList = ()=>{
     const [agents, setAgents] = useState([])
     const [loading, setLoading] = useState(true)
 
-
     const [searchParams , setSearchParams] = useSearchParams()
     const currentStatus = searchParams.get("status") || ""
     const currentAgent = searchParams.get("salesAgent") || ""
     const currentSort = searchParams.get("sort") || ""
+    const currentSource = searchParams.get("source") || ""
+    const currentTags = searchParams.get("tags") || ""
+
+    const [tagInput, setTagInput] = useState(currentTags)
 
 
     useEffect(()=>{
@@ -40,6 +43,13 @@ const LeadList = ()=>{
                     url += `salesAgent=${currentAgent}&`
                 }
 
+                if(currentSource && currentSource !== "All Sources"){
+                    url += `source=${currentSource}&`
+                }
+                if(currentTags){
+                    url += `tags=${currentTags}&`
+                }
+
                 const response = await axios.get(url)
                 let fetchedLeads = response.data;
 
@@ -57,12 +67,12 @@ const LeadList = ()=>{
             }
         }
         fetchLeads()
-    }, [currentStatus, currentAgent, currentSort])
+    }, [currentStatus, currentAgent, currentSort, currentSource, currentTags])
 
     const handlefilterChange = (key, value)=> {
         const newParams = new URLSearchParams(searchParams)
 
-        if(value === "All Status" || value === "All Agents" || value === "" ){
+        if(value === "All Status" || value === "All Agents" || value === "All Sources" || value === "" ){
             newParams.delete(key)
         }else{
             newParams.set(key, value)
@@ -80,7 +90,39 @@ const LeadList = ()=>{
                 <Link className="add-btn" to="/leads/add" > + Add New Lead</Link>
             </div>
 
+            <div className="status" style={{marginBottom: "20px", paddingTop: "0px"}}>
+                <Link to="/status-view" className="status-btn">View Leads Board</Link>
+                <Link to="/agent-view" className="status-btn">View Agents Board</Link>
+            </div>
+
             <div className="filter-section">
+
+                <h3>Source:</h3>
+                <select 
+                    value={currentSource || "All Source"}
+                    onChange={(e) => handlefilterChange("source", e.target.value)}>
+                        <option value="All Sources">All Sources</option>
+                        <option value="Website">Website</option>
+                        <option value="Referral">Referral</option>
+                        <option value="Cold Call">Cold Call</option>
+                        <option value="Advertisement">Advertisement</option>
+                        <option value="Email">Email</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <h3>Tags:</h3>
+                    <input 
+                        type="text" 
+                        placeholder="Type High Value, Follow-up & press enter..." 
+                        value={tagInput}
+                        onChange={(e) => setTagInput(e.target.value)}
+                        onKeyDown={(e) => {
+                            if(e.key === "Enter"){
+                                handlefilterChange("tags", tagInput.trim())
+                            }
+                        }}
+                        className="tag-input" />
+
                 <h3>Status </h3>
                 <select value={currentStatus || "All Status"}
                     onChange={(e) => handlefilterChange("status", e.target.value)}
@@ -151,11 +193,7 @@ const LeadList = ()=>{
                 </tbody>
             </table>
 
-            <div className="status">
-                <h2>View Leads Status</h2>
-                <Link to="/status-view" className="status-btn">View Leads</Link>
-                <Link to="/agent-view" className="status-btn">View Agents</Link>
-            </div>
+            
             
         </div>
         </>

@@ -71,8 +71,13 @@ const Dashboard = () => {
         <h3>Quick Filter</h3>
         <div className="quick-actions">
             <button onClick={()=> navigate("/leads?status=New")} className="filter-btn">Filter: New</button>
+            <button onClick={()=> navigate("/leads?status=Contacted")} className="filter-btn">Filter: Contacted</button>
+            <button onClick={()=> navigate("/leads?status=Qualified")} className="filter-btn">Filter: Qualified</button>
+            <button onClick={()=> navigate("/leads?status=Proposal Sent")} className="filter-btn">Filter: Proposal Sent</button>
+            <button onClick={()=> navigate("/leads?status=Closed")} className="filter-btn">Filter: Closed</button>
         </div>
-        <button onClick={()=> navigate("/leads?status=Contacted")} className="filter-btn">Filter: Contacted</button>
+        
+
     </div>
 </div>
     )
