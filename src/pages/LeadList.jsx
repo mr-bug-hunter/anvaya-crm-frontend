@@ -1,8 +1,7 @@
 import "./LeadList.css"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { useSearchParams } from "react-router-dom"
-import { Link } from "react-router-dom"
+import { useSearchParams, Link } from "react-router-dom"
 
 const LeadList = ()=>{
     const [leads, setLeads] = useState([])
@@ -15,8 +14,6 @@ const LeadList = ()=>{
     const currentSort = searchParams.get("sort") || ""
     const currentSource = searchParams.get("source") || ""
     const currentTags = searchParams.get("tags") || ""
-
-    const [tagInput, setTagInput] = useState(currentTags)
 
 
     useEffect(()=>{
@@ -111,17 +108,14 @@ const LeadList = ()=>{
                     </select>
 
                     <h3>Tags:</h3>
-                    <input 
-                        type="text" 
-                        placeholder="Type High Value, Follow-up & press enter..." 
-                        value={tagInput}
-                        onChange={(e) => setTagInput(e.target.value)}
-                        onKeyDown={(e) => {
-                            if(e.key === "Enter"){
-                                handlefilterChange("tags", tagInput.trim())
-                            }
-                        }}
-                        className="tag-input" />
+                    <select 
+                        value={currentTags || ""}
+                        onChange={(e) => handlefilterChange("tags", e.target.value)}>
+                        <option value="">All Tags</option>
+                        <option value="High Value">High Value</option>
+                        <option value="Follow-up">Follow-up</option>
+                        </select>
+
 
                 <h3>Status </h3>
                 <select value={currentStatus || "All Status"}
@@ -192,9 +186,6 @@ const LeadList = ()=>{
                     )}
                 </tbody>
             </table>
-
-            
-            
         </div>
         </>
     )
